@@ -138,3 +138,10 @@ body {
   background: $main-color;
   margin-top: 1.7em;
 }
+input.disabled{
+  cursor: not-allowed;
+  background: #ccc;
+}
+input{
+  outline: none;
+}
