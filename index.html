@@ -6,9 +6,55 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Invite</title>
+    <link href="src/css/font-awesome.min.css"/>
 </head>
 <body>
-
+<div class="box">
+    <header>
+        <div class="title">Invite people to Dribbble</div>
+        <div class="subtitle"><span id="count">0</span>invites available</div>
+        <div class="search-box">
+            <input type="text" class="search" id="search"><i class="fa fa-search"></i>
+        </div>
+    </header>
+    <main>
+        <div class="contact-box">
+            <div class="avatar"><img src="http://i.pravatar.cc/100?img=3" alt=""></div>
+            <div class="info">
+                <div class="name">Alex</div>
+                <div class="skill">photoshop,pinanacle studio</div>
+                <div class="contact-box"><span>Belarus</span>bymart.by</div>
+            </div>
+            <div class="check-box">
+                <input type="checkbox" class="checks" id="check1"><label for="check1"></label>
+            </div>
+        </div>
+        <div class="contact-box">
+            <div class="avatar"><img src="http://i.pravatar.cc/100?img=4" alt=""></div>
+            <div class="info">
+                <div class="name">Alina</div>
+                <div class="skill"></div>
+                <div class="contact-box"><span>Ukraine Kiev</span>Kuvshynonva.com</div>
+            </div>
+            <div class="check-box">
+                <input type="checkbox" class="checks" id="check2"><label for="check2"></label>
+            </div>
+        </div>
+        <div class="contact-box">
+            <div class="avatar"><img src="http://i.pravatar.cc/100?img=5" alt=""></div>
+            <div class="info">
+                <div class="name">Yolanda</div>
+                <div class="skill">wordpress,web design,joomla,html</div>
+                <div class="contact-box"><span>Palma de Mallorica</span>yollandagranados.com</div>
+            </div>
+            <div class="check-box">
+                <input type="checkbox" class="checks" id="check3"><label for="check3"></label>
+            </div>
+        </div>
+        <input type="email" class="email" placeholder="Send invite by e-mail">
+        <input type="submit" class="submit" id="submit" value="invite">
+    </main>
+</div>
 <script src="bundle.js"></script>
 </body>
 </html>
