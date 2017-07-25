@@ -62,14 +62,14 @@ let app = new Vue({
             this.count = this.$children[1].$children.filter(item => {
                 return item.isChecked;
             }).length;
-            this.count === 0?this.$children[2].isDisable = true:this.$children[2].isDisable = false;
+            this.count === 0 ? this.$children[2].isDisable = true : this.$children[2].isDisable = false;
         },
         submit() {
             alert(this.$children[1].$children.filter(item => {
-                return item.isChecked;
-            }).map(item => {
-                return item.name;
-            })+ ' has been invited');
+                    return item.isChecked;
+                }).map(item => {
+                    return item.name;
+                }) + ' has been invited');
         }
     }
 });
