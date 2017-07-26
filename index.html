@@ -12,21 +12,15 @@
 <body>
 <div class="box" id="root">
     <header>
-        <div class="title">Invite people to Dribbble</div>
-        <div class="subtitle"><span id="count">{{count}}</span>invites available</div>
+        <h1 class="title">Invite people to Dribbble</h1>
+        <h2 class="subtitle"><span id="count">{{count}}</span>invites available</h2>
         <search></search>
     </header>
     <main>
-        <contact-list @check="changeStatus">
-            <contact id="0" name="Alex" skill="photoshop,pinanacle studio" info="Belarus" address="bymart.by"
-                     avatar="http://i.pravatar.cc/100?img=3"></contact>
-            <contact id="1" name="Alina" skill="" info="Ukraine Kiev" address="Kuvshynonva.com"
-                     avatar="http://i.pravatar.cc/100?img=4"></contact>
-            <contact id="2" name="Yolna" skill="wordpress,web design,joomla,html" info="palama de Mallorica"
-                     address="yollandagranados.com" avatar="http://i.pravatar.cc/100?img=5"></contact>
-        </contact-list>
+        <contact v-for="contact in contacts" @check="changeStatus" :id="contact.id" :name="contact.name" :skill="contact.skill" :info="contact.info" :address="contact.address"
+                 :avatar="contact.avatar"></contact>
         <input type="email" class="email" placeholder="Send invite by e-mail">
-        <submit @submit="submit"></submit>
+        <submit @submit="submit" :class="{disabled:isDisable}" :disabled="isDisable"></submit>
     </main>
 </div>
 <script src="bundle.js"></script>

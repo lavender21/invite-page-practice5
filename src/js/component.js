@@ -1,9 +1,3 @@
-Vue.component('contact-list', {
-    template: `
-        <div @click="$emit('check')"><slot></slot></div>
-    `
-});
-
 Vue.component('contact', {
     props: ['name', 'skill', 'info', 'address', 'avatar', 'id'],
     template: `
@@ -15,7 +9,7 @@ Vue.component('contact', {
                 <div class="contact-box"><span>{{info}}</span>{{address}}</div>
             </div>
             <div class="check-box">
-                <input type="checkbox" class="checks" :id="id" v-model="isChecked"><label :for="id"></label>
+                <input type="checkbox" class="checks" :id="id" v-model="isChecked" @click="$emit('check')"><label :for="id"></label>
             </div>
         </div>
     `,
@@ -42,7 +36,7 @@ Vue.component('search', {
 
 Vue.component('submit', {
     template: `
-       <input @click="$emit('submit')" type="submit" class="submit" id="submit" value="invite" :class="{disabled:isDisable}" :disabled="isDisable">
+       <input @click="$emit('submit')" type="submit" class="submit" id="submit" value="invite" >
    `,
     data() {
         return {
@@ -55,17 +49,44 @@ Vue.component('submit', {
 let app = new Vue({
     el: '#root',
     data: {
-        count: 0
+        count: 0,
+        isDisable:true,
+        contacts: [
+            {
+                name: 'Alex',
+                skill: 'photoshop,pinanacle studio',
+                info: 'Belarus',
+                address: 'bymart.by',
+                id: 0,
+                avatar: 'http://i.pravatar.cc/100?img=3'
+            },
+            {
+                name: 'Alina',
+                skill: '',
+                info: 'Ukraine Kiev',
+                address: 'Kuvshynonva.com',
+                id: 1,
+                avatar: 'http://i.pravatar.cc/100?img=4'
+            },
+            {
+                name: 'Yolna',
+                skill: 'wordpress,web design,joomla,html',
+                info: 'palama de Mallorica',
+                address: 'yollandagranados.com',
+                id: 2,
+                avatar: 'http://i.pravatar.cc/100?img=5'
+            }
+        ]
     },
     methods: {
         changeStatus() {
-            this.count = this.$children[1].$children.filter(item => {
+            this.count = this.$children.filter(item => {
                 return item.isChecked;
             }).length;
-            this.count === 0 ? this.$children[2].isDisable = true : this.$children[2].isDisable = false;
+            this.count === 0 ? this.isDisable = true : this.isDisable = false;
         },
         submit() {
-            alert(this.$children[1].$children.filter(item => {
+            alert(this.$children.filter(item => {
                     return item.isChecked;
                 }).map(item => {
                     return item.name;
